@@ -1,32 +1,92 @@
 #include <stdio.h>
-
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
+ 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+//Declarando as variáveis.
+int opcao, casa, numero;
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    //Iniciando o jogo de xadrez.
+   printf("Bem vindo ao jogo de xadrez!\n");
+do {printf("Por favor, selecione a peça que deseja movimentar:\n");
+printf("1 - Torre;\n");
+printf("2 - Bispo;\n");   
+printf("3 - Rainha.\n");
+scanf("%d", &opcao);
+if (opcao < 1 || opcao > 3)
+{
+printf("Opção inválida...\n");
+}
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+} while ((opcao < 1) || (opcao > 3) );
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+switch (opcao)
+{
+case 1: do
+{
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+printf("Digite o número de casas que deseja pular sendo no máximo 8 casas:\n");
+scanf("%d", &numero);
+if ((numero < 1) || (numero > 8))
+{
+    printf("Opção inválida...\n");
+}
+
+} while ((numero < 1) || (numero > 8));
+
+for ( casa = 1; casa <= numero; casa++)
+{
+    printf("Direita\n");
+}
+printf("Torre pulou %d casas para a direita!!\n", numero);
+    
+    break;
+    case 2:
+    do
+{
+
+printf("Digite o número de casas que deseja pular sendo no máximo 8 casas:\n");
+scanf("%d", &numero);
+if ((numero < 1) || (numero > 8))
+{
+    printf("Opção inválida...\n");
+}
+
+} while ((numero < 1) || (numero > 8));
+
+for ( casa = 1; casa <= numero; casa++)
+{
+    printf("Cima, direita\n");
+}
+printf("Bispo pulou %d casas para cima, direita!!\n", numero);
+    
+    break;
+    case 3:
+    do
+    {
+    
+    printf("Digite o número de casas que deseja pular sendo no máximo 8 casas:\n");
+    scanf("%d", &numero);
+    if ((numero < 1) || (numero > 8))
+    {
+        printf("Opção inválida...\n");
+    }
+    
+    } while ((numero < 1) || (numero > 8));
+    
+    for ( casa = 1; casa <= numero; casa++)
+    {
+        printf("Esquerda\n");
+    }
+    printf("Rainha pulou %d casas para a esquerda!!\n", numero);
+    
+    break;
+default:
+    break;
+}
+
+
+
 
     return 0;
 }
