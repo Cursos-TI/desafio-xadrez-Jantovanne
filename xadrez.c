@@ -1,10 +1,23 @@
 #include <stdio.h>
- 
+//Adicionando recursividade na lógica de escolha do número de casas das peças(torre, bispo e rainha).
+int QuantidadeDeCasas() {
+    int n;
+    do {
+        printf("Digite o número de casas que deseja pular (1 a 8):\n");
+        scanf("%d", &n);
+        if ((n < 1) || (n > 8)) {
+            printf("Opção inválida...\n");
+        }
+    } while ((n < 1) || (n > 8));
+    return n;
+}
+
+
 int main() {
 //Declarando as variáveis.
-int opcao, casa, numero, opcaoCavalo;
-int cavalo = 1;
 
+int opcao, casa, opcaoCavalo, casaHor, casaVer;
+int cavalo = 1;
 
     //Iniciando o jogo de xadrez.
    printf("Bem vindo ao jogo de xadrez!\n");
@@ -19,18 +32,11 @@ scanf("%d", &opcao);
 
 switch (opcao)
 {
-case 1: do
-{
-
-printf("Digite o número de casas que deseja pular sendo no máximo 8 casas:\n");
-scanf("%d", &numero);
-if ((numero < 1) || (numero > 8))
-{
-    printf("Opção inválida...\n");
-}
-
-} while ((numero < 1) || (numero > 8));
-
+    //Declarando a váriavel que chama a recursividade para dentro do main
+    int numero;
+    //Movimentando a torre.
+case 1:
+ numero = QuantidadeDeCasas();
 for ( casa = 1; casa <= numero; casa++)
 {
     printf("Direita\n");
@@ -38,39 +44,22 @@ for ( casa = 1; casa <= numero; casa++)
 printf("Torre pulou %d casas para a direita!!\n", numero);
     
     break;
+        //Movimentando o bispo.
     case 2:
-    do
+    numero = QuantidadeDeCasas();
+    for ( casaVer = 1; casaVer <= numero; casaVer++)
+    {
+for ( casaHor = 1; casaHor == 1; casaHor++)
 {
-
-printf("Digite o número de casas que deseja pular sendo no máximo 8 casas:\n");
-scanf("%d", &numero);
-if ((numero < 1) || (numero > 8))
-{
-    printf("Opção inválida...\n");
-}
-
-} while ((numero < 1) || (numero > 8));
-
-for ( casa = 1; casa <= numero; casa++)
-{
-    printf("Cima, direita\n");
-}
+    printf("Direita - ");
+}  printf("Cima\n");
+    }
 printf("Bispo pulou %d casas para cima, direita!!\n", numero);
     
     break;
+        //Movimentando a rainha.
     case 3:
-    do
-    {
-    
-    printf("Digite o número de casas que deseja pular sendo no máximo 8 casas:\n");
-    scanf("%d", &numero);
-    if ((numero < 1) || (numero > 8))
-    {
-        printf("Opção inválida...\n");
-    }
-    
-    } while ((numero < 1) || (numero > 8));
-    
+     numero = QuantidadeDeCasas();
     for ( casa = 1; casa <= numero; casa++)
     {
         printf("Esquerda\n");
@@ -78,6 +67,8 @@ printf("Bispo pulou %d casas para cima, direita!!\n", numero);
     printf("Rainha pulou %d casas para a esquerda!!\n", numero);
     
     break;
+
+    //Movimentando o cavalo.
     case 4:
     do
     {
@@ -99,7 +90,7 @@ switch (opcaoCavalo)
 case 1:
 while (cavalo--)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2 && i >= 0; i++)
     {
         printf("Cima - ");
     }
@@ -110,7 +101,7 @@ while (cavalo--)
     case 2:
     while (cavalo--)
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 2 && i >=0; i++)
         {
             printf("Cima - ");
         }
@@ -120,7 +111,7 @@ while (cavalo--)
     case 3:
     while (cavalo--)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2 && i >=0; i++)
     {
         printf("Baixo - ");
     }
@@ -130,7 +121,7 @@ while (cavalo--)
     case 4:
     while (cavalo--)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2 && i >=0; i++)
     {
         printf("Baixo - ");
     }
@@ -140,7 +131,7 @@ while (cavalo--)
     case 5:
     while (cavalo--)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2 && i >=0; i++)
     {
         printf("Direita - ");
     }
@@ -150,7 +141,7 @@ while (cavalo--)
     case 6:
     while (cavalo--)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2 && i >=0; i++)
     {
         printf("Direita - ");
     }
@@ -160,7 +151,7 @@ while (cavalo--)
     case 7:
     while (cavalo--)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2 && i >= 0; i++)
     {
         printf("Esquerda - ");
     }
@@ -170,7 +161,7 @@ while (cavalo--)
     case 8:
     while (cavalo--)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2 && i >= 0; i++)
     {
         printf("Esquerda - ");
     }
